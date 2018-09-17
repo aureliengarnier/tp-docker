@@ -1,0 +1,12 @@
+{
+  "name": "masterclass_docker",
+  "version": "1.0.0",
+  "description": "Node.js app",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}

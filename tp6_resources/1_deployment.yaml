@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: training-${USER}-deploy
+  name: training-${USER}-deploy
+  namespace: training-${USER}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: training-${USER}
+  template:
+    metadata:
+      labels:
+        app: training-${USER}
+    spec:
+      containers:
+      - image: gcr.io/google-samples/hello-app:1.0
+        imagePullPolicy: IfNotPresent
+        name: hello-app
+

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: training-${USER}-svc-np
+spec:
+  selector:
+    app: training-${USER}
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+

@@ -85,6 +85,12 @@ microk8s dashboard-proxy
 
 Il ne vous reste plus qu'à naviguer sur `<your_public_dns>:10443` et utiliser la méthode d'authentification par token, en fournissant celui affiché dans votre console
 
+Il est possible que votre Firefox vous empêche d'afficher le dashboard à cause d'une erreur HSTS, pour résoudre cela :
+
+* ouvrir un onglet et taper `about:config`, rechercher la clé `security.mixed_content.block_display_content` et passer sa valeur à `true`
+* vider le cache de votre navigateur
+* naviguer de nouveau sur l'url du dashboard et ajouter une exception
+
 ## Configuration du rôle admin
 
 Par défaut, votre dashboard ne vous permet pas d'explorer toutes les ressources de tous les namespaces

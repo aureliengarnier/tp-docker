@@ -17,7 +17,7 @@ sudo snap install microk8s --classic --channel=1.18/stable
 ## Vérifier son installation
 
 ```bash
-# Display Microk8s status
+# Display Microk8s status : error, your current user is not allowed
 microk8s status
 
 # Add current user into group and give access to ~/.kube folder
@@ -25,7 +25,7 @@ sudo usermod -a -G microk8s <your_username>
 sudo chown -f -R <your_username> ~/.kube
 
 # Exit session and reconnect to apply modifications on your user
-<CTRL+D> or exit or start a new bash
+<CTRL+D> or exit
 ```
 
 ## Activer les plugins requis

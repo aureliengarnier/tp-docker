@@ -131,7 +131,7 @@ Interrogez maintenant votre service grâce à son IP, récupérée grâce à la 
 ```bash
 kubectl get svc
 curl http://<IP>
-``
+```
 
 ---
 

@@ -8,7 +8,7 @@ Avant tout, exportez une variable qui vous servira pour les commandes impérativ
 
 ```bash
 # In tp6_resources/ folder
-export USER=<user>
+export USER=$(whoami)
 # Replace n every YAML file
 sed -i -re 's|\$\{USER\}|'${USER}'|g' *.yaml
 ```
@@ -42,7 +42,7 @@ kubectl create -f 0_ns.yaml
 Nous allons utiliser et persister le namespace créé précédemment :
 
 ```bash
-kubectl config set-context --curent --namespace training-${USER}
+kubectl config set-context --current --namespace training-${USER}
 ```
 
 ---

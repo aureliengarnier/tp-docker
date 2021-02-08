@@ -68,22 +68,22 @@ docker logs nginx
 
 ## docker run interactif
 
-- Démarrez un conteneur en interactif (option `-ti`) en utilisant la commande de démarrage `bash`
+- Démarrez un conteneur en interactif (option `-ti`) en utilisant la commande de démarrage `sh`
 
 ```bash
-docker run -ti nginx bash
+docker run -ti nginx:alpine sh
 ```
 
 - Dans le conteneur, lancez la commande `ps` pour lister les processus
 
 ```bash
 root@c8067d6fd561:/# ps
-PID TTY          TIME CMD
-  1 ?        00:00:00 bash
-  5 ?        00:00:00 ps
+PID TTY  TIME COMMAND
+  1 ?    0:00 sh
+  9 ?    0:00 ps
 ```
 
-Le process bash a le pid `1`, qui est habituellement celui du programme `init`
+Le process `sh` a le pid `1`, qui est habituellement celui du programme `init`
 
 - Quittez le conteneur en tapant `exit`, ou avec `Ctrl+D`
 
@@ -107,10 +107,9 @@ docker run -p 80:80 --name nginx -d nginx
 
 - Depuis un navigateur, connectez vous sur le conteneur, sur le port 80, pour vérifier que le processus nginx est bien démarré.
 
-> Pour Linux, l’url est [localhost:80](http://localhost:80).
+> Sur la plupart des installations Docker, l’url est [localhost:80](http://localhost:80)
 
-> Pour Windows ou OSX (si vous utilisez Docker Toolbox), l’url est [DOCKER_HOST:80](http://DOCKER_HOST:80) <br />
-Pour connaître votre `DOCKER_HOST`, vous pouvez utiliser la commande `docker-machine ip`
+> Si vous êtes sur une instance ec2 fournie par votre instructeur, accédez à votre conteneur en spécifiant le DNS de votre instance
 
 - Consultez les logs du conteneur nginx
 

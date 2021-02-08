@@ -14,7 +14,7 @@ Activons le Helm embarqué dans Microk8s
 # Enable Helm3
 microk8s enable helm3
 # Create snap alias
-sudo snap alias microk8s.helm
+sudo snap alias microk8s.helm3 helm
 ```
 
 Vérifier la version :

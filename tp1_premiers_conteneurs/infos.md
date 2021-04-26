@@ -98,7 +98,7 @@ Pour le moment nous n’avons lancé que des conteneurs éphémères. Dans cette
 
 
 ```bash
-docker run -p 80:80 --name nginx -d nginx
+docker run -p 80:80 --name nginx -d nginx:alpine
 ```
 
 ### docker ps/logs/inspect
@@ -132,7 +132,7 @@ Il est souvent utile de se “connecter” sur un conteneur pour débuguer. Aucu
 - Avec la commande `exec` (et l’option `-ti`), lancer un processus bash dans le conteneur
 
 ```bash
-docker exec -ti nginx bash
+docker exec -ti nginx sh
 ```
 
 - Vérifier les processus en cours d'exécution `ps aux`

@@ -135,7 +135,7 @@ Créez également un fichier package.json avec le contenu suivant
 
 Ajoutez les instructions dans le `Dockerfile` pour :
 
-- Utiliser `node` comme image de base
+- Utiliser `node:alpine` comme image de base
 - Définir les Labels suivants :
 
 ```

@@ -165,3 +165,12 @@ docker run -d -p 8080:8080 node_dockerfile
 > Vous pouvez modifier le hostname (valeur qui sera affiché dans la page web), avec le paramètre `--hostname nouveau_hostname` lors du docker run
 
 > Le cache de la commande `docker build` peut parfois poser des problèmes. Pour construire vos images en omettant le cache, ajoutez l’option `--no-cache`
+
+## Nettoyage
+
+Nettoyez tous les conteneurs de ce workshop en exécutant la commande : 
+
+```bash
+docker rm -f $(docker ps -a -q)
+```
+

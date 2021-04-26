@@ -142,3 +142,11 @@ docker exec -ti nginx sh
 - Avec la commande `docker top`, vérifiez que le résultat est identique à la commande `ps aux` précédente
 
 - Utilisez `docker stats` pour consulter les statistiques d'usage de ressources de votre conteneur
+
+## Nettoyage
+
+Nettoyez tous les conteneurs de ce workshop en exécutant la commande : 
+
+```bash
+docker rm -f $(docker ps -a -q)
+```

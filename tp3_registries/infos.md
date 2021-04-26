@@ -31,15 +31,3 @@ docker run -d -p 5000:5000 --restart=always --name registry registry:2
 
 - En suivant les instructions précédentes et vous aidant des slides de la partie théorique, poussez votre image sur votre registry privé
 
-> Il faudra ajouter votre nouvelle registry en tant que service non sécurisé au niveau du démon Docker
-
-* Sous Windows : éditer le fichier `~/.docker/machine/machines/<machine_name>/config.json`
-    * Ajouter l'URI de la registry locale dans le champ `InsecureRegistry`
-* Sous Linux : éditer le fichier `/etc/docker/daemon.json`
-    * Ajouter le JSON suivant :
-
-```json
-{
-  "insecure-registries" : ["myregistrydomain.com:5000"]
-}
-```

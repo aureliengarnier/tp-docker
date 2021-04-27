@@ -55,22 +55,22 @@ Helm vous donne les instructions pour accéder à votre application :
 ```bash
 NAME: my-nginx
 LAST DEPLOYED: Mon Feb  8 12:10:44 2021
-NAMESPACE: training-agarnier
+NAMESPACE: training-${USER}
 STATUS: deployed
 REVISION: 1
 NOTES:
 1. Get the application URL by running these commands:
-  export POD_NAME=$(kubectl get pods --namespace training-agarnier -l "app.kubernetes.io/name=hello-app,app.kubernetes.io/instance=my-nginx" -o jsonpath="{.items[0].metadata.name}")
+  export POD_NAME=$(kubectl get pods --namespace training-${USER} -l "app.kubernetes.io/name=hello-app,app.kubernetes.io/instance=my-nginx" -o jsonpath="{.items[0].metadata.name}")
   echo "Visit http://127.0.0.1:8080 to use your application"
-  kubectl --namespace training-agarnier port-forward $POD_NAME 8080:80
+  kubectl --namespace training-${USER} port-forward $POD_NAME 8080:80
 ```
 
 Exécutez les commandes qu'il vous donne pour réaliser du port-forwarding et ouvrir l'accès à votre Pod :
 
 ```bash
-export POD_NAME=$(kubectl get pods --namespace training-agarnier -l "app.kubernetes.io/name=hello-app,app.kubernetes.io/instance=my-nginx" -o jsonpath="{.items[0].metadata.name}")
+export POD_NAME=$(kubectl get pods --namespace training-${USER} -l "app.kubernetes.io/name=hello-app,app.kubernetes.io/instance=my-nginx" -o jsonpath="{.items[0].metadata.name}")
 echo "Visit http://127.0.0.1:8080 to use your application"
-kubectl --namespace training-agarnier port-forward $POD_NAME 8080:80
+kubectl --namespace training-${USER} port-forward $POD_NAME 8080:80
 ```
 
 Validez que vous accédez bien à votre pod avec curl
@@ -88,7 +88,7 @@ Modifiez maintenant votre deploiement avec la commande `helm upgrade`, en rempla
 Puis, tester votre endpoint avec curl en ciblant le DNS public de votre instance
 
 ```bash
-export DNS=decision-network-docker-training-XXX.aws.soat.fr
+export DNS=${YOUR_PUBLIC_DNS}
 helm upgrade my-nginx . --set ingress.enabled=true --set ingress.hosts[0].host=${DNS},ingress.hosts[0].paths[0]=/
 curl http://${DNS}/
 ```
@@ -105,14 +105,14 @@ cd values
 vim ec2.yaml
 ```
 
-Insérez le contenu suivant dans ce fichier puis sauvegardez-le
+Insérez le contenu suivant dans ce fichier puis sauvegardez-le (pensez à remplacer YOUR_PUBLIC_DNS par le DNS de votre instance EC2
 
 ```yaml
 replicaCount: 2
 ingress:
   enabled: true
   hosts:
-    - host: decision-network-docker-training-0.aws.soat.fr
+    - host: ${YOUR_PUBLIC_DNS}
       paths: [ "/" ]
 ```
 

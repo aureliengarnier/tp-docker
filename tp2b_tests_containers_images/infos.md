@@ -4,6 +4,15 @@ Une image Docker est un artéfact logiciel comme un autre. Il  est important de 
 
 ## Container Structure Tests
 
+Les objectifs de ce workshop sont :
+
+* d'installer l'outil container-structure-test
+* d'écrire un Dockerfile
+* de construire une image à partir de ce Dockerfile
+* d'écrire et de lancer des tests avec l'outil
+
+Plusieurs approches sont possibles, travailler en TDD de façon itérative, ou bien écrire les tests et le code séparément
+
 ### Installation
 
 Sur votre instance, installer le binaire `container-structure-test` :
@@ -12,7 +21,7 @@ Sur votre instance, installer le binaire `container-structure-test` :
 curl -LO https://storage.googleapis.com/container-structure-test/latest/container-structure-test-linux-amd64 && chmod +x container-structure-test-linux-amd64 && sudo mv container-structure-test-linux-amd64 /usr/local/bin/container-structure-test
 ```
 
-### Ecriture de tests
+### Spécifications des tests
 
 A l'aide du [README](https://github.com/GoogleContainerTools/container-structure-test) sur la page Github du projet `container-structure-test` écrivez des cas de tests en prenant en compte les caractéristiques et la nature d'une image Docker, qui doit respecter les spécifications suivantes : 
 
@@ -48,7 +57,7 @@ Rappel :
 docker build -t <image_tag> <context>
 ```
 
-> Tip : Pour créer un nouvel utilisateur lors de la construction de votre image Docker, utiliser la commande `adduser <username>`
+> Tip : Pour créer un nouvel utilisateur lors de la construction de votre image Docker, utiliser la commande `adduser -h <path_home> -D <username>`
 
 > Tip : Servez-vous du Makefile fourni en exécutant : **make build**
 
@@ -56,7 +65,7 @@ docker build -t <image_tag> <context>
 
 Ouvrez le fichier Makefile et observez le détail de la cible `test`
 
-Notez les paramètres donnés à la commande `container-structure-test` et adapter osoit le nom de vos fichiers, soit la commande de la cible
+Notez les paramètres donnés à la commande `container-structure-test` et adaptez soit le nom de vos fichiers, soit la commande de la cible
 
 Une fois que tout est valide, lancez maintenant vos tests avec **make test**
 

@@ -1,0 +1,9 @@
+schemaVersion: "2.0.0"
+
+fileExistenceTests:
+- name: 'Index HTML'
+  path: '/usr/share/nginx/html/index.html'
+  shouldExist: true
+- name: 'Log report'
+  path: '/home/app-service/report.log'
+  shouldExist: false

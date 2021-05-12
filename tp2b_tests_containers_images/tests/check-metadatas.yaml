@@ -1,0 +1,14 @@
+schemaVersion: "2.0.0"
+
+metadataTest:
+  env:
+    - key: HOME
+      value: /home/app-service
+  labels:
+    - key: 'DISTRIB'
+      value: 'alpine'
+    - key: 'APP_VERSION'
+      value: '1.0.0'
+    - key: 'MAINTAINER'
+      value: 'soat'
+  workdir: "/home/app-service"

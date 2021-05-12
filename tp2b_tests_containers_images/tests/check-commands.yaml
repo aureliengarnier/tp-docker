@@ -1,0 +1,6 @@
+schemaVersion: "2.0.0"
+
+commandTests:
+  - name: "Who am I ?"
+    command: "whoami"
+    expectedOutput: ["app-service"]

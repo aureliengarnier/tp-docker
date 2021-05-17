@@ -70,6 +70,37 @@ k get all -n ingress
 k get all -A
 ```
 
+## Installer les outils de productivité
+
+Pour être plus efficace, installons `kubectx` et `kubens` qui nous permettront respectivement de changer de contexte et de namespace rapidement !
+
+### FZF
+
+En suivant la [documentation](https://github.com/junegunn/fzf#installation), installer tout d'abord `fzf` (avec git) :
+
+```bash
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+```
+
+Répondre `yes` aux questions, puis quittez votre session EC2 avec `exit` ou `CTRL+D`
+
+Connectez-vous de nouveau en SSH à votre instance, et essayez la combinaison `CTRL+R`
+
+Vous devriez voir votre historique de commandes, en mode liste interactive
+
+### kubectx et kubens
+
+En suivant la [documentation](https://github.com/ahmetb/kubectx#linux), installons maintenant ces 2 outils : 
+
+```bash
+sudo git clone https://github.com/ahmetb/kubectx /opt/kubectx
+sudo ln -s /opt/kubectx/kubectx /usr/local/bin/kubectx
+sudo ln -s /opt/kubectx/kubens /usr/local/bin/kubens
+```
+
+Essayez maintenant ces 2 nouvelles commandes
+
 ## Utiliser le dashboard
 
 Par défaut, le dashboard n'est pas accessible depuis l'extérieur de votre cluster

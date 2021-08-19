@@ -101,6 +101,22 @@ Vous devriez voir Hello World affiché, avec d'autres informations provenant du 
 
 ### Avec le mode déclaratif
 
+Créez un Service de type ClusterIP, de façon déclarative
+
+Utilisez le fichier `2_service-cp.yaml` et la commande `kubectl create` pour créer votre service de type ClusterIP
+
+```bash
+kubectl create -f 2_service-cp.yaml
+```
+
+Interrogez maintenant votre service grâce à son IP, récupérée grâce à la commande `kubectl get svc`
+
+```bash
+kubectl get svc
+curl http://<IP>
+```
+---
+
 Nous allons maintenant créer un service de type NodePort, de façon déclarative
 
 Utilisez le fichier `2_service-np.yaml` et la commande `kubectl create` pour créer votre service de type NodePort
@@ -117,23 +133,6 @@ curl http://127.0.0.1:<port>
 ```
 
 > Le port à cibler est un port aléatoire, libre sur votre instance, par exemple `31445/TCP` dans la colonne Port(s) contenant `80:31445/TCP`
-
-Créez maintenant un Service de type ClusterIP, de façon déclarative
-
-Utilisez le fichier `2_service-cp.yaml` et la commande `kubectl create` pour créer votre service de type ClusterIP
-
-```bash
-kubectl create -f 2_service-cp.yaml
-```
-
-Interrogez maintenant votre service grâce à son IP, récupérée grâce à la commande `kubectl get svc`
-
-```bash
-kubectl get svc
-curl http://<IP>
-```
-
----
 
 ## Créer un Ingress
 

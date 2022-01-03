@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: challenge1
+spec:
+  selector:
+    matchLabels:
+      run: challenge1
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: challenge1
+        role: api
+    spec:
+      containers:
+      - name: challenge1
+        image: nginx:0.1
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            memory: "128Mi" #128 MB
+            cpu: "200m" #200 millicpu (.2 cpu or 20% of the cpu)

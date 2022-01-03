@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: challenge6
+spec:
+  selector:
+    matchLabels:
+      run: challenge6
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: challenge6
+        role: api
+    spec:
+      volumes:
+      - name: html
+        emptyDir: {}      
+      initContainers:
+      - name: challenge6-helper
+        image: alpine
+        volumeMounts:
+        - name: html
+          mountPath: /html
+        command: ["bin/sh", "-c"]
+        args:
+        - echo "status=ok" >> html/index.html;
+      containers:
+      - name: challenge6
+        image: nginx:alpine
+        volumeMounts:
+        - name: html
+          mountPath: /usr/share/nginx/html
+          readOnly: true
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            memory: "128Mi" #128 MB
+            cpu: "200m" #200 millicpu (.2 cpu or 20% of the cpu)

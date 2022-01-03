@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: challenge5
+spec:
+  selector:
+    matchLabels:
+      run: challenge5
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: challenge5
+        role: api
+    spec:
+      volumes:
+      - name: html
+        emptyDir: {}
+      initContainers:
+      - name: challenge5-helper
+        env:
+        - name: WEATHER-VALUE
+          valueFrom:
+            configMapKeyRef:
+              name: weather-report-status
+              key: weather
+        image: alpine
+        volumeMounts:
+        - name: html
+          mountPath: /html
+        command: ["bin/sh", "-c"]
+        args:
+        - echo "Hello, today the weather is going to be **${WEATHER}**<br/>" >> html/index.html;
+      containers:
+      - name: challenge5
+        image: nginx:alpine
+        volumeMounts:
+        - name: html
+          mountPath: /usr/share/nginx/html
+          readOnly: true
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            memory: "128Mi" #128 MB
+            cpu: "200m" #200 millicpu (.2 cpu or 20% of the cpu)

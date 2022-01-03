@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: challenge4
+spec:
+  selector:
+    matchLabels:
+      run: challenge4
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: challenge4
+        role: api
+    spec:
+      volumes:
+      - name: html
+        emptyDir: {}
+      containers:
+      - name: challenge4-helper
+        image: alpine
+        volumeMounts:
+        - name: html
+          mountPath: /html
+        command: ["bin/sh", "-euo", "pipefail", "-c"]
+        args:
+        - while true; do
+            echo $(date)"<br/>" >> html/index.html;
+            sleep 3;
+            figlet "done";
+          done
+      - name: challenge4
+        image: nginx:alpine
+        volumeMounts:
+        - name: html
+          mountPath: /usr/share/nginx/html
+          readOnly: true
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            memory: "128Mi" #128 MB
+            cpu: "200m" #200 millicpu (.2 cpu or 20% of the cpu)

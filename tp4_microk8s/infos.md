@@ -37,11 +37,11 @@ Les plugins suivants seront activés :
 * dns -> active la fonctionnalité de dns (avec CoreDNS), et offre de la résolution à votre cluster
 * rbac -> active l'accès par role
 * dashboard -> installe et configure le dashboard kubernetes
-
+* cilium -> active le plugin réseau pour pouvoir travailler avec les network policies
 
 ```bash
 # Enable useful plugins
-microk8s enable storage ingress dns rbac dashboard
+microk8s enable storage ingress dns rbac dashboard cilium
 ```
 
 ## Tester son installation

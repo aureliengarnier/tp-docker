@@ -88,3 +88,7 @@ Instructions :
 * Aidez-vous des commandes `kubectl` vues en partie théorique
 
 > hint : Pour demander un service à quelqu'un, vous l'appelez bien par son vrai nom...
+
+## Pour finir
+
+Explorez d'autres techniques de troubleshooting sur [la documentation officielle Kubernetes](https://kubernetes.io/docs/tasks/debug-application-cluster/)

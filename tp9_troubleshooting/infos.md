@@ -7,7 +7,7 @@ Voici quelques défis à réaliser pour vous familiariser avec le troubleshootin
 Avant de commencer, vous aurez besoin d'activer un nouveau **plugin Microk8s**
 
 ```bash
-microk8s enable metallb:10.0.10.1-10.0.10-10
+microk8s enable metallb:10.0.10.1-10.0.10.10
 ```
 
 Ce plugin simule un LoadBalancer et vous attribue une _External IP_ en **10.0.10.X** pour chaque nouveau Service Kubernetes créé

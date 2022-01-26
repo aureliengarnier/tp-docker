@@ -2,6 +2,16 @@
 
 Voici quelques défis à réaliser pour vous familiariser avec le troubleshooting de vos applications Kubernetes
 
+
+## Pré-requis
+
+Avant de commencer vous devez disposer d'une installation du cluster Kubernetes local : Microk8s
+
+Pour l'installer et le configurer c'est par ici :
+
+- [Installer Microk8s](https://github.com/aureliengarnier/tp-docker/tree/master/tp4_microk8s)
+- [Configurer kubectl](https://github.com/aureliengarnier/tp-docker/tree/master/tp5_kubectl)
+
 ## Configuration
 
 Avant de commencer, vous aurez besoin d'activer un nouveau **plugin Microk8s**

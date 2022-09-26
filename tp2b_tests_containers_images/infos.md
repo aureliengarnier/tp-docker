@@ -25,7 +25,6 @@ curl -LO https://storage.googleapis.com/container-structure-test/latest/containe
 
 A l'aide du [README](https://github.com/GoogleContainerTools/container-structure-test) sur la page Github du projet `container-structure-test` écrivez des cas de tests en prenant en compte les caractéristiques et la nature d'une image Docker, qui doit respecter les spécifications suivantes : 
 
-* Base image `nginx:1.19.10-alpine` (tip : FROM)
 * Dossier courant sur `/home/app-service/` (tip : WORKDIR)
 * Utilisateur courant `app-service` (tip : USER) donné par la commande whoami
 * Variables d'environnement : (tip : ENV)

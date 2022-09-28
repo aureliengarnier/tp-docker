@@ -90,7 +90,7 @@ Puis, tester votre endpoint avec curl en ciblant le DNS public de votre instance
 ```bash
 export DNS=${YOUR_PUBLIC_DNS}
 helm upgrade my-nginx . --set ingress.enabled=true --set ingress.hosts[0].host=${DNS},ingress.hosts[0].paths[0]=/
-curl http://${DNS}/
+curl -Lk http://${DNS}/
 ```
 
 ### En fournissant un fichier de values custom
